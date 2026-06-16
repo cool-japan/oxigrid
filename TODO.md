@@ -283,10 +283,10 @@
 
 | Metric | Value |
 |--------|-------|
-| Rust source files | 466 |
-| SLoC (Rust code) | 231,610 |
-| Total tests passing | 5,226 (nextest: lib unit + integration, all-features, Round 32) |
-| Coverage (Round 28) | 78.49% (43,580/55,525 lines) — measurement still deferred; Rounds 29–32 added ~270 tests on previously thin/zero modules, est. well above 80% |
+| Rust source files | 483 |
+| SLoC (Rust code) | 302,247 |
+| Total tests passing | 6,179 (nextest: lib unit + integration, all-features, Round 50) |
+| Coverage (2026-06-16) | 81.53% (45,120/55,340 lines, cargo tarpaulin --all-features) |
 | Clippy warnings | 0 (`--all-targets --all-features`) |
 | IEEE 14-bus NR bench | ~29 us |
 | IEEE 30-bus NR bench | ~160 us |

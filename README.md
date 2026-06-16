@@ -1,7 +1,7 @@
 # OxiGrid
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/cool-japan/oxigrid)
-[![Tests](https://img.shields.io/badge/tests-6123%20passing-brightgreen)](https://github.com/cool-japan/oxigrid)
+[![Tests](https://img.shields.io/badge/tests-6179%20passing-brightgreen)](https://github.com/cool-japan/oxigrid)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-2021%20%E2%80%A2%20MSRV%201.75-orange)](https://www.rust-lang.org)
 [![COOLJAPAN](https://img.shields.io/badge/COOLJAPAN-ecosystem-blue)](https://github.com/cool-japan)
@@ -237,14 +237,14 @@ Add OxiGrid to `Cargo.toml`:
 
 ```toml
 [dependencies]
-oxigrid = "0.1.2"
+oxigrid = "0.1.3"
 ```
 
 To enable specific subsystems only:
 
 ```toml
 [dependencies]
-oxigrid = { version = "0.1.2", default-features = false, features = ["powerflow", "battery"] }
+oxigrid = { version = "0.1.3", default-features = false, features = ["powerflow", "battery"] }
 ```
 
 ### Newton-Raphson Power Flow
@@ -392,13 +392,13 @@ fn main() -> Result<()> {
 Disable the default feature set and opt-in selectively for minimal binary size:
 
 ```toml
-oxigrid = { version = "0.1.2", default-features = false, features = ["powerflow"] }
+oxigrid = { version = "0.1.3", default-features = false, features = ["powerflow"] }
 ```
 
 Enable the full library including LP/MILP solver and SIMD acceleration:
 
 ```toml
-oxigrid = { version = "0.1.2", features = ["simd", "parallel"] }
+oxigrid = { version = "0.1.3", features = ["simd", "parallel"] }
 ```
 
 ---
@@ -499,7 +499,7 @@ inspects the matrix dimensions at runtime.
 
 ## Testing
 
-OxiGrid ships 6,123 tests covering unit, integration, property-based, and benchmark scenarios.
+OxiGrid ships 6,179 tests covering unit, integration, property-based, and benchmark scenarios.
 
 ```bash
 # Run the full test suite (recommended: nextest for parallel execution)
@@ -561,8 +561,8 @@ Measured with `tokei` on the current codebase (2026-06-16):
 | Markdown | 3 | — | 734 | 187 |
 | **Total** | **488** | **305,108** | — | — |
 
-- **Version**: 0.1.2
-- **Tests**: 6,123 passing
+- **Version**: 0.1.3
+- **Tests**: 6,179 passing
 - **Modules**: 22
 - **Last Updated**: 2026-06-16
 
@@ -574,7 +574,7 @@ Contributions are welcome. Please ensure:
 
 1. `cargo fmt --all` — code is formatted
 2. `cargo clippy --all-features -- -D warnings` — no clippy warnings
-3. `cargo nextest run --all-features` — all 6,123 tests pass
+3. `cargo nextest run --all-features` — all 6,179 tests pass
 4. New public API items carry `///` doc comments
 5. No `unwrap()` in production code paths — use `?` and `OxiGridError`
 6. Feature-gate any new optional subsystems in `Cargo.toml` and `src/lib.rs`
