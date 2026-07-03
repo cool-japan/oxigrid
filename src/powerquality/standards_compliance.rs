@@ -1107,7 +1107,7 @@ mod tests {
         let checker = En50160Checker::new(0.4, 50.0, 7);
         // 10 % of values at 1.15 pu (beyond ±10 %) — fails 95 % rule
         let mut v = vec![1.0_f64; 900];
-        v.extend(std::iter::repeat(1.15_f64).take(100));
+        v.extend(std::iter::repeat_n(1.15_f64, 100));
         let result = checker.check_voltage_magnitude(&v);
         assert!(
             !result.compliant_95_pct,
@@ -1142,7 +1142,7 @@ mod tests {
         let checker = En50160Checker::new(0.4, 50.0, 7);
         // Mix: 97 % in normal, but 3 % at 46 Hz (outside 47-52)
         let mut freq = vec![50.0_f64; 970];
-        freq.extend(std::iter::repeat(46.0_f64).take(30));
+        freq.extend(std::iter::repeat_n(46.0_f64, 30));
         let result = checker.check_frequency(&freq);
         // 100% in extended band is violated
         assert!(!result.compliant, "46 Hz is outside extended band");
@@ -1163,7 +1163,7 @@ mod tests {
         let checker = En50160Checker::new(0.4, 50.0, 7);
         // 10 % of Plt values = 1.5 (above 1.0 limit)
         let mut plt = vec![0.5_f64; 900];
-        plt.extend(std::iter::repeat(1.5_f64).take(100));
+        plt.extend(std::iter::repeat_n(1.5_f64, 100));
         let result = checker.check_flicker(&plt);
         assert!(!result.compliant, "10% above Plt limit should fail");
     }

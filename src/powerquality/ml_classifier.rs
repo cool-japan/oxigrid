@@ -881,7 +881,7 @@ impl PqClassifier {
     pub fn haar_wavelet_decompose(signal: &[f64], levels: usize) -> Vec<Vec<f64>> {
         let mut current = signal.to_vec();
         // Pad to even length if needed
-        if current.len() % 2 != 0 {
+        if !current.len().is_multiple_of(2) {
             current.push(0.0);
         }
         let mut details = Vec::with_capacity(levels);

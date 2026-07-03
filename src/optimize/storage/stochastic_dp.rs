@@ -739,7 +739,7 @@ fn regularised_incomplete_beta(x: f64, a: f64, _b: f64) -> f64 {
     let mut i = 1_usize;
     while i < n_steps {
         let t = i as f64 * step;
-        let coeff = if i % 2 == 0 { 2.0 } else { 4.0 };
+        let coeff = if i.is_multiple_of(2) { 2.0 } else { 4.0 };
         integral += coeff * f(t);
         i += 1;
     }
@@ -753,7 +753,7 @@ fn regularised_incomplete_beta(x: f64, a: f64, _b: f64) -> f64 {
     let mut j = 1_usize;
     while j < n_steps {
         let t = j as f64 * full_step;
-        let coeff = if j % 2 == 0 { 2.0 } else { 4.0 };
+        let coeff = if j.is_multiple_of(2) { 2.0 } else { 4.0 };
         full_integral += coeff * f(t);
         j += 1;
     }

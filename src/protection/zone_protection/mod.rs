@@ -729,7 +729,7 @@ impl ZoneCoordinator {
                         && relay.is_inside_characteristic((r_app, x_app), zone)
                     {
                         let ct = zone.time_delay_s;
-                        if backup_clearing.map_or(true, |bc: f64| ct < bc) {
+                        if backup_clearing.is_none_or(|bc: f64| ct < bc) {
                             backup_relay_id = Some(relay.relay_id);
                             backup_clearing = Some(ct);
                         }
@@ -745,7 +745,7 @@ impl ZoneCoordinator {
                     for zone in &primary_relay.zones {
                         if zone.zone_num > best_zone_num {
                             let bt = zone.time_delay_s;
-                            if backup_clearing.map_or(true, |bc: f64| bt < bc) {
+                            if backup_clearing.is_none_or(|bc: f64| bt < bc) {
                                 backup_relay_id = Some(primary_relay.relay_id);
                                 backup_clearing = Some(bt);
                             }

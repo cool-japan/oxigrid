@@ -325,7 +325,7 @@ impl DlrForecaster {
             let result = self.compute_rating(config)?;
             let update = min_result
                 .as_ref()
-                .map_or(true, |best| result.dynamic_rating_a < best.dynamic_rating_a);
+                .is_none_or(|best| result.dynamic_rating_a < best.dynamic_rating_a);
             if update {
                 min_result = Some(result);
             }

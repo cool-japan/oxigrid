@@ -2,7 +2,7 @@
 name = "oxigrid"
 version = "0.1.3"
 edition = "2021"
-rust-version = "1.75"
+rust-version = "1.89"
 license = "Apache-2.0"
 description = "Pure Rust Energy Systems Simulation & Optimization Library"
 authors = ["COOLJAPAN OU (Team Kitasan)"]
@@ -20,7 +20,7 @@ serde_json = "1.0"
 thiserror = "2.0.18"
 log = "0.4"
 tracing = "0.1"
-nalgebra = "0.34.2"
+nalgebra = "0.35.0"
 sprs = "0.11.4"
 num-complex = { version = "0.4.6", default-features = false, features = ["serde", "libm"] }
 rayon = { version = "1.12", optional = true }

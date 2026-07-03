@@ -295,7 +295,7 @@ impl NetworkPartitioner {
         // Split by median of Fiedler values
         let mut values: Vec<f64> = buses.iter().map(|&b| fiedler[local_idx[b]]).collect();
         values.sort_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal));
-        let median = if m % 2 == 0 {
+        let median = if m.is_multiple_of(2) {
             (values[m / 2 - 1] + values[m / 2]) * 0.5
         } else {
             values[m / 2]

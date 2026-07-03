@@ -46,7 +46,7 @@ fn main() {
             ekf.update(i_discharge, state.voltage, dt, t_ref);
             thermal.step(i_discharge.0, p.r0, dt);
 
-            if step % 36 == 0 {
+            if step.is_multiple_of(36) {
                 println!(
                     "{:>5}  {:>8}  {:>8.4}  {:>8.4}  {:>8.4}  {:>8.4}  {:>8.2}",
                     step,
@@ -78,7 +78,7 @@ fn main() {
             ekf.update(i_charge, state.voltage, dt, t_ref);
             thermal.step(i_charge.0.abs(), p.r0, dt);
 
-            if step % 36 == 0 {
+            if step.is_multiple_of(36) {
                 println!(
                     "{:>5}  {:>8}  {:>8.4}  {:>8.4}  {:>8.4}  {:>8.4}  {:>8.2}",
                     step,

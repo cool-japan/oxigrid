@@ -354,7 +354,7 @@ impl MicroScada {
             .high_limit
             .is_some_and(|lim| value > lim && !hh_violated);
         let lo_violated = tag_snapshot.low_limit.is_some_and(|lim| {
-            value < lim && tag_snapshot.low_low_limit.map_or(true, |ll| value >= ll)
+            value < lim && tag_snapshot.low_low_limit.is_none_or(|ll| value >= ll)
         });
         let ll_violated = tag_snapshot.low_low_limit.is_some_and(|lim| value < lim);
 

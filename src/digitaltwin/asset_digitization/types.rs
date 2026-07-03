@@ -845,7 +845,7 @@ impl MaintenanceScheduler {
             .collect();
         scores.sort_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal));
         let n = scores.len();
-        let median_condition = if n % 2 == 0 {
+        let median_condition = if n.is_multiple_of(2) {
             (scores[n / 2 - 1] + scores[n / 2]) / 2.0
         } else {
             scores[n / 2]

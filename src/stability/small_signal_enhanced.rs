@@ -730,7 +730,7 @@ impl SmallSignalAnalyzer {
 
             let mut sorted_pf: Vec<f64> = significant.iter().map(|&i| machine_pf[i]).collect();
             sorted_pf.sort_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal));
-            let median = if sorted_pf.len() % 2 == 0 {
+            let median = if sorted_pf.len().is_multiple_of(2) {
                 0.5 * (sorted_pf[sorted_pf.len() / 2 - 1] + sorted_pf[sorted_pf.len() / 2])
             } else {
                 sorted_pf[sorted_pf.len() / 2]

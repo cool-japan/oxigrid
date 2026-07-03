@@ -303,7 +303,7 @@ impl Ieee519Limits {
     fn limit_for_order(&self, h: usize) -> f64 {
         // Only odd harmonics have explicit limits; even harmonics are typically
         // limited to 25 % of the odd harmonic limit for the same order range.
-        if h % 2 == 0 {
+        if h.is_multiple_of(2) {
             return self.limit_for_order(h + 1) * 0.25;
         }
         for &(max_order, limit) in &self.odd_harmonics {

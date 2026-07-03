@@ -387,7 +387,7 @@ impl AdaptiveUflsController {
                 && time > 1.0
             {
                 // Check that restoration delay has elapsed
-                let ok = post_shed_time.map_or(true, |t| time >= t);
+                let ok = post_shed_time.is_none_or(|t| time >= t);
                 if ok {
                     recovery_time = Some(time);
                 }
